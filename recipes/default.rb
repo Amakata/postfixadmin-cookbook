@@ -62,7 +62,9 @@ setup_password_encrypted =
     encrypt_setup_password(setup_password, generate_setup_password_salt)
   end
 
-chef_gem 'sequel'
+chef_gem 'sequel' do
+  version "4.17.0"
+end
 
 if %w(localhost 127.0.0.1).include?(node['postfixadmin']['database']['host'])
   include_recipe "postfixadmin::#{db_type}"
